@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Preparedness Education System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>DisasterEd</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#modules" class="nav-link">Learning Modules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#protocols" class="nav-link">Emergency Protocols</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#alerts" class="nav-link">Alerts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#progress" class="nav-link">Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="logout-btn">Logout</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="login-container">
+                <h2>Login to DisasterEd</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content" style="display: none;">
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <h1>Welcome to Disaster Preparedness Education</h1>
+
+                <!-- Alert Banner -->
+                <div id="alert-banner" class="alert-banner" style="display: none;">
+                    <div class="alert-content">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="alert-text">
+                            <h3 id="alert-title"></h3>
+                            <p id="alert-message"></p>
+                        </div>
+                        <button class="alert-close" onclick="closeAlert()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="modules-completed">0</h3>
+                            <p>Modules Completed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="certifications-earned">0</h3>
+                            <p>Certifications Earned</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="time-spent">0h</h3>
+                            <p>Time Spent Learning</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="achievement-score">0</h3>
+                            <p>Achievement Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-grid">
+                        <button class="action-card" onclick="navigateTo('modules')">
+                            <i class="fas fa-play-circle"></i>
+                            <h3>Start Learning</h3>
+                            <p>Begin disaster preparedness training</p>
+                        </button>
+                        <button class="action-card" onclick="showEmergencyProtocols()">
+                            <i class="fas fa-list-ul"></i>
+                            <h3>Emergency Protocols</h3>
+                            <p>View evacuation procedures</p>
+                        </button>
+                        <button class="action-card" onclick="takeAssessment()">
+                            <i class="fas fa-clipboard-check"></i>
+                            <h3>Take Assessment</h3>
+                            <p>Test your knowledge</p>
+                        </button>
+                        <button class="action-card" onclick="viewProgress()">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>View Progress</h3>
+                            <p>Track your learning journey</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Modules Section -->
+        <section id="modules" class="section">
+            <div class="container">
+                <h1>Learning Modules</h1>
+                <div class="filter-bar">
+                    <select id="disaster-filter">
+                        <option value="all">All Disasters</option>
+                        <option value="earthquake">Earthquake</option>
+                        <option value="fire">Fire</option>
+                        <option value="flood">Flood</option>
+                        <option value="cyclone">Cyclone</option>
+                        <option value="pandemic">Health Emergency</option>
+                    </select>
+                    <select id="level-filter">
+                        <option value="all">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div id="modules-grid" class="modules-grid">
+                    <!-- Modules will be loaded here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Protocols Section -->
+        <section id="protocols" class="section">
+            <div class="container">
+                <h1>Emergency Response Protocols</h1>
+                <div id="protocols-container">
+                    <!-- Protocols will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts Section -->
+        <section id="alerts" class="section">
+            <div class="container">
+                <h1>Emergency Alerts</h1>
+                <div id="alerts-container">
+                    <!-- Alerts will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section">
+            <div class="container">
+                <h1>Learning Progress</h1>
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Overall Progress</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <span>65% Complete</span>
+                    </div>
+                </div>
+                <div id="progress-details">
+                    <!-- Detailed progress will be shown here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Module Player Modal -->
+    <div id="module-modal" class="modal">
+        <div class="modal-content module-player">
+            <div class="modal-header">
+                <h2 id="module-title"></h2>
+                <button class="modal-close" onclick="closeModule()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="module-content">
+                    <!-- Module content will be loaded here -->
+                </div>
+                <div class="module-controls">
+                    <button id="prev-btn" class="btn btn-secondary">Previous</button>
+                    <button id="next-btn" class="btn btn-primary">Next</button>
+                    <button id="complete-btn" class="btn btn-success" style="display: none;">Complete Module</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assessment Modal -->
+    <div id="assessment-modal" class="modal">
+        <div class="modal-content assessment-container">
+            <div class="modal-header">
+                <h2>Assessment</h2>
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer-display">30:00</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="assessment-content">
+                    <!-- Assessment questions will be loaded here -->
+                </div>
+                <div class="assessment-controls">
+                    <button id="submit-assessment" class="btn btn-primary">Submit Assessment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

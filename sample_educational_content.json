@@ -1,0 +1,140 @@
+{
+  "modules": [
+    {
+      "id": 1,
+      "title": "Fire Safety Basics",
+      "description": "Learn fundamental fire safety principles for educational institutions",
+      "disaster_type": "fire",
+      "target_audience": "secondary",
+      "difficulty_level": "beginner",
+      "duration_minutes": 45,
+      "learning_objectives": [
+        "Identify common fire hazards in schools",
+        "Understand fire prevention techniques",
+        "Learn proper evacuation procedures",
+        "Practice using fire safety equipment"
+      ],
+      "assessment": {
+        "questions": [
+          {
+            "id": 1,
+            "type": "multiple_choice",
+            "question": "What are the three elements needed for fire to exist?",
+            "options": [
+              "Fuel, Oxygen, Heat",
+              "Water, Air, Fire",
+              "Smoke, Flame, Heat",
+              "Wood, Gas, Electricity"
+            ],
+            "correct_answer": 0,
+            "explanation": "The fire triangle consists of fuel (combustible material), oxygen, and heat (ignition source)."
+          },
+          {
+            "id": 2,
+            "type": "true_false",
+            "question": "You should use elevators during a fire emergency.",
+            "correct_answer": false,
+            "explanation": "Never use elevators during fires as they may malfunction or trap you."
+          },
+          {
+            "id": 3,
+            "type": "multiple_choice",
+            "question": "What should you do if you hear the fire alarm?",
+            "options": [
+              "Wait for instructions",
+              "Immediately stop what you're doing and evacuate",
+              "Finish your current task first",
+              "Look for the fire before leaving"
+            ],
+            "correct_answer": 1,
+            "explanation": "Always evacuate immediately when the fire alarm sounds, following established evacuation routes."
+          }
+        ],
+        "passing_score": 80,
+        "time_limit_minutes": 15
+      }
+    },
+    {
+      "id": 2,
+      "title": "Earthquake Response Procedures",
+      "description": "Essential earthquake safety and response techniques for schools and colleges",
+      "disaster_type": "earthquake",
+      "target_audience": "all",
+      "difficulty_level": "intermediate",
+      "duration_minutes": 60,
+      "assessment": {
+        "questions": [
+          {
+            "id": 1,
+            "type": "multiple_choice",
+            "question": "What should you do FIRST when you feel earthquake shaking?",
+            "options": [
+              "Run outside immediately",
+              "Stand in a doorway",
+              "Drop to hands and knees",
+              "Call for help"
+            ],
+            "correct_answer": 2,
+            "explanation": "The first step in Drop, Cover, Hold On is to immediately drop to your hands and knees."
+          },
+          {
+            "id": 2,
+            "type": "true_false",
+            "question": "It's safe to stand under a doorway during an earthquake.",
+            "correct_answer": false,
+            "explanation": "Doorways are not safer than other locations and may not provide adequate protection from falling objects."
+          }
+        ],
+        "passing_score": 75,
+        "time_limit_minutes": 20
+      }
+    }
+  ],
+  "emergency_protocols": [
+    {
+      "title": "School Fire Emergency Protocol",
+      "disaster_type": "fire",
+      "institution_type": "school",
+      "protocol_steps": [
+        {
+          "step": 1,
+          "title": "Discovery and Alarm",
+          "description": "Anyone discovering a fire should immediately activate the nearest fire alarm pull station",
+          "duration": "0-2 minutes",
+          "responsible": "Anyone discovering fire"
+        },
+        {
+          "step": 2,
+          "title": "Notification",
+          "description": "Fire alarm system notifies all occupants and automatically contacts fire department",
+          "duration": "Immediate",
+          "responsible": "Automatic system"
+        },
+        {
+          "step": 3,
+          "title": "Evacuation",
+          "description": "All occupants evacuate using nearest safe exit route",
+          "duration": "2-5 minutes",
+          "responsible": "All occupants, guided by teachers"
+        }
+      ],
+      "evacuation_routes": [
+        "Primary Route A: Main entrance via central hallway",
+        "Primary Route B: East exit via gymnasium",
+        "Secondary Route A: West exit via cafeteria"
+      ],
+      "emergency_contacts": [
+        {
+          "name": "Fire Department",
+          "phone": "112",
+          "type": "emergency"
+        },
+        {
+          "name": "School Principal",
+          "phone": "+91-172-xxx-xxxx",
+          "type": "administration"
+        }
+      ]
+    }
+  ]
+}
